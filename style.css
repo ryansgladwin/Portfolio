@@ -286,45 +286,53 @@ p {
 }
 
 
-/* ---------- Highlights (index page) — 2x2 standout grid ---------- */
-.highlight-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.25rem 1.75rem;
+/* ---------- Highlights (index page) — lead story + list ---------- */
+.highlight-lead {
+    display: flex;
+    gap: 1.75rem;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
 }
 
-.highlight-card img {
+.highlight-lead-thumb {
+    flex: 0 0 46%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.highlight-lead-thumb img {
     width: 100%;
-    height: 190px;
+    height: 100%;
     object-fit: cover;
     display: block;
-    margin-bottom: 0.85rem;
 }
 
-.highlight-card h3 {
+.highlight-lead-text h3 {
     font-family: 'Fraunces', serif;
     font-weight: 700;
-    font-size: 1.2rem;
-    line-height: 1.3;
-    margin-bottom: 0.4rem;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
 }
 
-.highlight-card h3 a {
+.highlight-lead-text h3 a {
     color: var(--ink);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
-.highlight-card h3 a:hover {
+.highlight-lead-text h3 a:hover {
     color: var(--accent);
     text-decoration: underline;
     text-underline-offset: 3px;
 }
 
-.highlight-card p {
-    font-size: 0.9rem;
+.highlight-lead-text p {
+    font-size: 1rem;
     color: var(--gray);
-    line-height: 1.5;
+    line-height: 1.55;
 }
 
 /* ---------- Video / outlet sections ---------- */
@@ -618,6 +626,13 @@ footer::before {
     }
     .clip-content {
         flex-direction: column;
+    }
+    .highlight-lead {
+        flex-direction: column;
+    }
+    .highlight-lead-thumb {
+        flex: none;
+        width: 100%;
     }
     .clip-content a:first-child {
         width: 100%;
