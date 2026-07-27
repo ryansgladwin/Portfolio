@@ -285,138 +285,110 @@ p {
     color: var(--accent);
 }
 
-/* ---------- Highlights (index page) ---------- */
-.highlight-hero {
-    display: flex;
-    gap: 1.5rem;
-    border: 1px solid var(--border);
-    margin-bottom: 1.25rem;
-    overflow: hidden;
-}
-
-.highlight-hero .highlight-thumb-wrap {
-    flex: 0 0 42%;
-}
-
-.highlight-hero .highlight-thumb {
-    width: 100%;
-    height: 100%;
-    min-height: 190px;
-    object-fit: cover;
-    display: block;
-}
-
-.highlight-hero .highlight-body {
-    flex: 1;
-    padding: 1.1rem 1.25rem 1.1rem 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.highlight-hero h3 {
-    font-size: 1.4rem;
-    line-height: 1.2;
-}
-
+/* ---------- Highlights (index page) — overlay grid ---------- */
 .highlight-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.1rem;
+    gap: 1.25rem;
 }
 
 .highlight-card {
-    border: 1px solid var(--border);
+    position: relative;
+    height: 220px;
     overflow: hidden;
+    display: block;
+    text-decoration: none;
+    color: #FFFFFF;
 }
 
-.highlight-thumb {
+.highlight-card img {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: 130px;
+    height: 100%;
     object-fit: cover;
-    display: block;
-    border-bottom: 1px solid var(--border);
+    transition: transform 0.4s ease;
+}
+
+.highlight-card:hover img {
+    transform: scale(1.04);
+}
+
+.highlight-scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(22, 20, 15, 0.88) 0%, rgba(22, 20, 15, 0.15) 55%, transparent 100%);
 }
 
 .highlight-body {
-    padding: 0.85rem 1rem 1rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1rem;
 }
 
-.highlight-card h3,
-.highlight-hero h3 {
+.highlight-body h3 {
     font-family: 'Fraunces', serif;
     font-weight: 700;
-    margin: 0.45rem 0 0.35rem;
-    line-height: 1.28;
-}
-
-.highlight-card h3 {
-    font-size: 1rem;
-}
-
-.highlight-card h3 a,
-.highlight-hero h3 a {
-    color: var(--ink);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.highlight-card h3 a:hover,
-.highlight-hero h3 a:hover {
-    color: var(--accent);
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    font-size: 1.05rem;
+    line-height: 1.25;
+    color: #FFFFFF;
+    margin: 0;
 }
 
 .highlight-dek {
-    font-size: 0.85rem;
-    color: var(--gray);
-    line-height: 1.45;
-    margin-bottom: 0.5rem;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.4;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
 }
 
-.highlight-hero .highlight-dek {
-    font-size: 0.95rem;
-}
-
-.highlight-meta {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.68rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--gray);
-}
-
-.highlight-meta .outlet {
-    color: var(--accent);
+.highlight-card:hover .highlight-dek {
+    max-height: 4rem;
+    opacity: 1;
+    margin-top: 0.4rem;
 }
 
 /* ---------- Video / outlet sections ---------- */
 .outlet-section {
-    margin-top: 1.5rem;
-    margin-bottom: 2rem;
+    margin-top: 0;
+    margin-bottom: 3rem;
+    padding-top: 2rem;
+}
+
+.outlet-section:first-child {
+    padding-top: 0;
+}
+
+.outlet-section + .outlet-section {
+    border-top: 1px solid var(--border);
 }
 
 .section-bio {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
+    font-style: italic;
     color: var(--ink);
-    line-height: 1.55;
-    margin-bottom: 1rem;
-    max-width: 640px;
+    line-height: 1.6;
+    border-left: 3px solid var(--accent);
+    padding-left: 1.1rem;
+    margin: 1rem 0 1.5rem;
+    max-width: 600px;
 }
 
 .outlet-header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--ink);
-    padding-bottom: 0.4rem;
-    margin-bottom: 1rem;
+    display: block;
+    margin-bottom: 0;
 }
 
 .outlet-title {
-    font-size: 1.15rem;
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1.1;
 }
 
 .media-grid {
@@ -684,17 +656,8 @@ footer::before {
     .highlight-grid {
         grid-template-columns: 1fr;
     }
-    .highlight-hero {
-        flex-direction: column;
-    }
-    .highlight-hero .highlight-thumb-wrap {
-        flex: none;
-    }
-    .highlight-hero .highlight-thumb {
-        min-height: 180px;
-    }
-    .highlight-hero .highlight-body {
-        padding: 0.9rem 1rem 1rem;
+    .highlight-card {
+        height: 200px;
     }
     .media-grid {
         grid-template-columns: 1fr;
