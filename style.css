@@ -1,0 +1,621 @@
+/* ===========================================================
+   Ryan S. Gladwin — Portfolio
+   Broadsheet-editorial base, forked from André Beganski's template.
+   Signature: wire-service "kicker" tags encode content type/beat.
+   =========================================================== */
+
+:root {
+    --paper: #FAF8F3;
+    --ink: #16140F;
+    --gray: #5A564C;
+    --border: #DAD4C4;
+    --accent: #B4131F;      /* wire-service red — used sparingly */
+    --accent-dark: #7A0C15;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: 'Lora', serif;
+    line-height: 1.5;
+    padding: 1.5rem;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+/* ---------- Masthead ---------- */
+header {
+    margin-bottom: 2rem;
+    padding: 1.25rem 0;
+    border-top: 3px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    position: relative;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--ink);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+h1 {
+    font-size: 2.75rem;
+    font-weight: 900;
+    margin: 0 0 0.1rem 0;
+    letter-spacing: -0.03em;
+    line-height: 1;
+}
+
+.subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--ink);
+}
+
+section {
+    margin-bottom: 2.25rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 2px solid var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+p {
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+}
+
+#about p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+#about p:last-child {
+    margin-bottom: 0;
+}
+
+/* ---------- Nav ---------- */
+.work-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.25rem;
+    margin-bottom: 2rem;
+    padding: 0.6rem 1rem;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+}
+
+.work-nav a {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.work-nav a:hover,
+.work-nav a.active {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ---------- Kicker (signature element) ----------
+   Small wire-service style label naming the beat/format
+   ahead of each headline: SCOOP, PROFILE, EXPLAINER, etc. */
+.kicker {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 0.12rem 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ---------- Clips (writing / index featured work) ---------- */
+.clip {
+    margin-bottom: 1.5rem;
+}
+
+.clip-content {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+}
+
+.clip-text {
+    flex: 1;
+}
+
+.clip-thumb {
+    width: 150px;
+    height: 95px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.clip-content a:first-child {
+    display: block;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.clip-hero {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.75rem;
+}
+
+.clip-hero .clip-content {
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.clip-hero .clip-thumb {
+    width: 250px;
+    height: 155px;
+    object-fit: cover;
+}
+
+.clip-hero h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.clip-hero p {
+    font-size: 1.05rem;
+}
+
+.clip h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 0.2rem;
+    line-height: 1.25;
+}
+
+.clip h3 a {
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.clip h3 a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+.clip-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--gray);
+    margin-bottom: 0.3rem;
+    font-weight: 700;
+}
+
+/* ---------- Placeholder clips (samples not uploaded yet) ---------- */
+.clip-placeholder .clip-content {
+    border: 1px dashed var(--border);
+    padding: 1.1rem 1.25rem;
+    align-items: flex-start;
+}
+
+.clip-placeholder .clip-thumb-placeholder {
+    width: 150px;
+    height: 95px;
+    flex-shrink: 0;
+    border: 1px dashed var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--border);
+    font-size: 1.5rem;
+    background: repeating-linear-gradient(
+        135deg,
+        transparent,
+        transparent 8px,
+        rgba(218, 212, 196, 0.4) 8px,
+        rgba(218, 212, 196, 0.4) 9px
+    );
+}
+
+.clip-placeholder h3 {
+    color: var(--gray);
+    font-style: italic;
+}
+
+.clip-placeholder .clip-meta span.pending {
+    color: var(--accent);
+}
+
+/* ---------- Beat grid (index page) ---------- */
+.beat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.9rem;
+}
+
+.beat-card {
+    border: 1px solid var(--ink);
+    padding: 1rem 1.1rem;
+    text-decoration: none;
+    color: var(--ink);
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.beat-card:hover {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.beat-card:hover .beat-card-label {
+    color: var(--paper);
+}
+
+.beat-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.15rem;
+}
+
+.beat-card-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+/* ---------- Video / outlet sections ---------- */
+.outlet-section {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.outlet-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+.outlet-title {
+    font-size: 1.15rem;
+}
+
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+.media-card {
+    border: 1px solid var(--border);
+    padding: 1rem;
+}
+
+.media-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--gray);
+    margin-bottom: 0.4rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.media-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+}
+
+.media-card p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin-bottom: 0.75rem;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-bottom: 0.75rem;
+    background: #efe9db;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.video-placeholder {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    border: 1px dashed var(--border);
+    margin-bottom: 0.75rem;
+    background: repeating-linear-gradient(
+        135deg,
+        transparent,
+        transparent 8px,
+        rgba(218, 212, 196, 0.4) 8px,
+        rgba(218, 212, 196, 0.4) 9px
+    );
+}
+
+.video-placeholder .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.75rem;
+    color: var(--border);
+}
+
+.media-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.media-link:hover {
+    color: var(--accent);
+}
+
+/* ---------- Contact ---------- */
+.contact-box {
+    border: 1px solid var(--ink);
+    padding: 1.5rem;
+    background: #FFFFFF;
+    margin-top: 1.5rem;
+}
+
+.btn-editorial {
+    font-family: 'Inter', sans-serif;
+    display: inline-block;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.6rem 1.25rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    margin-top: 0.75rem;
+    border: 1px solid var(--ink);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.btn-editorial:hover {
+    opacity: 0.85;
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+.btn-editorial-outline {
+    background: transparent;
+    color: var(--ink);
+}
+
+.contact-form label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--gray);
+    margin-bottom: 0.3rem;
+    margin-top: 1rem;
+}
+
+.contact-form label:first-child {
+    margin-top: 0;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    padding: 0.6rem 0.7rem;
+    border: 1px solid var(--border);
+    background: var(--paper);
+    color: var(--ink);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.contact-form button {
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    border: 1px solid var(--ink);
+}
+
+/* ---------- Footer ---------- */
+footer {
+    border-top: 1px solid var(--ink);
+    padding-top: 1.25rem;
+    margin-top: 2.5rem;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--ink);
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.links a {
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.links a i {
+    font-size: 0.95rem;
+    color: var(--ink);
+    transition: transform 0.2s ease;
+}
+
+.links a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.links a:hover i {
+    color: var(--accent);
+    transform: scale(1.1);
+}
+
+.colophon {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    .work-nav {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+    }
+    .clip-content {
+        flex-direction: column;
+    }
+    .clip-content a:first-child {
+        width: 100%;
+    }
+    .clip-thumb, .clip-hero .clip-thumb, .clip-thumb-placeholder {
+        width: 100%;
+        height: 180px;
+    }
+    .beat-grid {
+        grid-template-columns: 1fr;
+    }
+    .media-grid {
+        grid-template-columns: 1fr;
+    }
+    .outlet-header {
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+    h1 { font-size: 2.25rem; }
+    body { padding: 1.25rem 1rem; }
+}
