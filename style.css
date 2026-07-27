@@ -285,74 +285,6 @@ p {
     color: var(--accent);
 }
 
-/* ---------- Highlights (index page) — overlay grid ---------- */
-.highlight-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-}
-
-.highlight-card {
-    position: relative;
-    height: 220px;
-    overflow: hidden;
-    display: block;
-    text-decoration: none;
-    color: #FFFFFF;
-}
-
-.highlight-card img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-}
-
-.highlight-card:hover img {
-    transform: scale(1.04);
-}
-
-.highlight-scrim {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(22, 20, 15, 0.88) 0%, rgba(22, 20, 15, 0.15) 55%, transparent 100%);
-}
-
-.highlight-body {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 1rem;
-}
-
-.highlight-body h3 {
-    font-family: 'Fraunces', serif;
-    font-weight: 700;
-    font-size: 1.05rem;
-    line-height: 1.25;
-    color: #FFFFFF;
-    margin: 0;
-}
-
-.highlight-dek {
-    font-size: 0.82rem;
-    color: rgba(255, 255, 255, 0.85);
-    line-height: 1.4;
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    margin-top: 0;
-    transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
-}
-
-.highlight-card:hover .highlight-dek {
-    max-height: 4rem;
-    opacity: 1;
-    margin-top: 0.4rem;
-}
 
 /* ---------- Video / outlet sections ---------- */
 .outlet-section {
@@ -652,12 +584,6 @@ footer::before {
     .clip-thumb, .clip-hero .clip-thumb, .clip-thumb-placeholder {
         width: 100%;
         height: 180px;
-    }
-    .highlight-grid {
-        grid-template-columns: 1fr;
-    }
-    .highlight-card {
-        height: 200px;
     }
     .media-grid {
         grid-template-columns: 1fr;
