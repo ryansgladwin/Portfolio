@@ -35,21 +35,10 @@ body {
 
 /* ---------- Masthead ---------- */
 header {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     padding: 1.25rem 0;
     border-top: 3px solid var(--ink);
-    border-bottom: 1px solid var(--ink);
     position: relative;
-}
-
-header::after {
-    content: '';
-    position: absolute;
-    bottom: 2px;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: var(--ink);
 }
 
 .header-content {
